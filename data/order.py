@@ -27,7 +27,9 @@ class Order(db.Model):
         self.download = download
 
     def __repr__(self):
-        return f"<Order {self.id}: {self.product}, {self.customer}, {self.date_placed_local}, {self.date_processed} >"
+        app.logger.info("date_placed is: " + self.date_placed)
+        app.logger.info("date_placed_local is: " + self.date_placed_local)
+        return f"<Order {self.id}: {self.product}, {self.customer}, {self.date_placed}, {self.date_processed} >"
 
     @property
     def date_placed_local(self):

@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 from datetime import datetime, timezone
 
+import logging
+logging.basicConfig(level=logging.INFO)
+
 from werkzeug.utils import redirect
 from flask_config import Config
 from data.database import initialise_database, add_order, clear_orders, count_orders, get_orders_to_display, get_queued_count, get_recently_placed_count, get_recently_processed_count
@@ -12,9 +15,6 @@ app.config.from_object(Config)
 
 initialise_database(app)
 initialise_scheduled_jobs(app)
-
-import logging
-logging.basicConfig(level=logging.INFO)
 
 @app.route("/")
 def index():
