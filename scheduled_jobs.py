@@ -29,6 +29,8 @@ def process_orders(app):
             "date": order.date_placed.isoformat(),
         }
 
+        app.logger.info("Payload date: " + payload["date"])
+
         response = requests.post(
             app.config["FINANCE_PACKAGE_URL"] + "/ProcessPayment",
             json=payload
