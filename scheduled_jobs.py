@@ -23,8 +23,8 @@ def process_orders(app):
 
         order = orders[0]
 
-        app.logger.info("date_placed is: " + order.date_placed)
-        app.logger.info("date_placed_local is: " + order.date_placed_local)
+        app.logger.info("date_placed is: " + order.date_placed.isoformat())
+        app.logger.info("date_placed_local is: " + order.date_placed_local.isoformat())
 
         payload = {
             "product": order.product,
