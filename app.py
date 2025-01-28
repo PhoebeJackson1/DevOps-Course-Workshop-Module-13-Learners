@@ -13,6 +13,8 @@ app.config.from_object(Config)
 initialise_database(app)
 initialise_scheduled_jobs(app)
 
+import logging
+logging.basicConfig(level=logging.INFO)
 
 @app.route("/")
 def index():
